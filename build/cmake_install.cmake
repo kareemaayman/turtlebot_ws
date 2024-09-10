@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kareema/turtlebot_ws/build/gtest/cmake_install.cmake")
+  include("/home/kareema/turtlebot_ws/build/pid_controller/cmake_install.cmake")
   include("/home/kareema/turtlebot_ws/build/shato-robot/miarobot_description/cmake_install.cmake")
 
 endif()
