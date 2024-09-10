@@ -1,2 +1,0 @@
-kinematic_model:pid_controller:shato-robot/miarobot_description
--DCATKIN_DEVEL_PREFIX=/home/kareema/turtlebot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kareema/turtlebot_ws/install -G Unix Makefiles
