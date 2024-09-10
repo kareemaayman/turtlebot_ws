@@ -80,6 +80,28 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -113,38 +135,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /home/kareema/turtlebot_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/kareema/turtlebot_ws/build/CMakeFiles /home/kareema/turtlebot_ws/build/pid_controller/CMakeFiles/progress.marks
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/all
+	cd /home/kareema/turtlebot_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/kareema/turtlebot_ws/build/CMakeFiles /home/kareema/turtlebot_ws/build/kinematic_model/CMakeFiles/progress.marks
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kareema/turtlebot_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/clean
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/preinstall
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/preinstall
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,79 +168,79 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-pid_controller/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : pid_controller/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+kinematic_model/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : kinematic_model/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_nodejs: pid_controller/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+std_msgs_generate_messages_py: kinematic_model/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_py
 
 # fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f pid_controller/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make pid_controller/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
+std_msgs_generate_messages_py/fast:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f kinematic_model/CMakeFiles/std_msgs_generate_messages_py.dir/build.make kinematic_model/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-pid_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : pid_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+kinematic_model/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : kinematic_model/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_py: pid_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+std_msgs_generate_messages_nodejs: kinematic_model/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f pid_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make pid_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
+std_msgs_generate_messages_nodejs/fast:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f kinematic_model/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make kinematic_model/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-pid_controller/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : pid_controller/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+kinematic_model/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : kinematic_model/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_lisp: pid_controller/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+std_msgs_generate_messages_lisp: kinematic_model/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f pid_controller/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make pid_controller/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
+std_msgs_generate_messages_lisp/fast:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f kinematic_model/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make kinematic_model/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-pid_controller/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : pid_controller/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+kinematic_model/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : kinematic_model/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: pid_controller/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+std_msgs_generate_messages_eus: kinematic_model/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_eus
+.PHONY : std_msgs_generate_messages_eus
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f pid_controller/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make pid_controller/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+std_msgs_generate_messages_eus/fast:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f kinematic_model/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make kinematic_model/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-pid_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pid_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : pid_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+kinematic_model/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinematic_model/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : kinematic_model/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_cpp: pid_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+std_msgs_generate_messages_cpp: kinematic_model/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f pid_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make pid_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
+std_msgs_generate_messages_cpp/fast:
+	cd /home/kareema/turtlebot_ws/build && $(MAKE) -f kinematic_model/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make kinematic_model/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
 
 # Help Target
 help:
@@ -250,16 +250,16 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... std_msgs_generate_messages_py"
+	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... std_msgs_generate_messages_eus"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... std_msgs_generate_messages_cpp"
 .PHONY : help
 
 
