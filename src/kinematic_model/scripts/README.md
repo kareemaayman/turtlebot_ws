@@ -37,6 +37,6 @@ This Python script simulates the trajectory of a 4-wheel drive (4WD) vehicle usi
 3. **Position and Orientation Update**:
    - The position (X, Y) and orientation (theta) of the vehicle are updated iteratively using the linear velocity, yaw rate, and steering angle.
 
-##Customization
+## Customization
 
 You can modify the vehicle parameters and control inputs directly in the script to simulate different vehicle behaviors. Adjust the angular velocities, steering angle, and vehicle dimensions as needed.
