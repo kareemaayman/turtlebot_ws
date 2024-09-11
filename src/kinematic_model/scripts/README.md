@@ -5,7 +5,6 @@ This Python script simulates the trajectory of a 4-wheel drive (4WD) vehicle usi
 ## Features
 
 - **Kinematic Model**: The script calculates the linear velocity, yaw rate, and updates the vehicle's position and orientation over time.
-- **Trajectory Plotting**: The trajectory of the vehicle is plotted on a 2D plane, allowing visualization of the vehicle's path over the simulation period.
 - **Customizable Parameters**: Vehicle parameters such as wheelbase, track width, wheel angular velocities, and steering angle can be easily modified.
 
 ## Vehicle Parameters
